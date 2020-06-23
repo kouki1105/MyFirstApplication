@@ -1,0 +1,20 @@
+<div layout:decorate="layout">
+	<div layout:fragment="contents">
+		<h1 th:text="${title}">New Staff</h1>
+		<form th:action="@{/companies/{company_id}/staffs/(company_id=*{company.id})}" th:method="post">
+			<div class="form-group">
+				<label class="control-label">名前</label>
+				<input class="form-control" type="text" name="name" />
+			</div>
+			<div class="form-group">
+				<label class="control-label">役職</label>
+				<input class="form-control" type="text" name="title" />
+			</div>
+			<input class="form-control" type="hidden" name="companyId" th:value="${company.id}" />
+			<button class="btn btn-secondary" type="submit">作成</button>
+		</form>
+		<div class="pull-right">
+			<a class="btn btn-link" href="/companies/{company_id}/staffs(company_id=${company.id})">一覧画面へ</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+<div layout:decorate="layout">
+	<div layout:fragment="contents">
+		<h1 th:text="${title}">New Comment</h1>
+		<form th:action="@{/ideas/{idea_id}/comments/(idea_id=*{idea.id})}" th:method="post">
+			<div class="form-group">
+				<label class="control-label">名前</label>
+				<input class="form-control" type="text" name="name" />
+			</div>
+			<div class="form-group">
+				<label class="control-label">本文</label>
+				<input class="form-control" type="text" name="body" />
+			</div>
+			<input class="form-control" type="hidden" name="ideaId" th:value="${idea.id}" />
+			<button class="btn btn-secondary" type="submit">作成</button>
+		</form>
+		<div class="pull-right">
+			<a class="btn btn-link" href="/ideas/{idea_id}/comments(idea_id=${idea.id})">一覧画面へ</a>
+		</div>
+	</div>
+</div>

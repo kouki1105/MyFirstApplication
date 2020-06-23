@@ -1,0 +1,31 @@
+<div layout:decorate="layout">
+	<div layout:fragment="contents">
+		<h1 th:text="${title}">Staff Index</h1>
+		<table class="table">
+			<thead>
+				<tr>
+				<th>ID</th>
+				<th>名前</th>
+				<th>役職</th>
+				<th>会社</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="staff:${staffs}" th:object="${staff}">
+					<td th:text="*{id}"></td>
+					<td th:text="*{name}"></td>
+					<td th:text="*{title}"></td>
+					<td><a class="btn btn-secondary btn-xs" th:href="@{/companies/{company_id}/staffs/{id}(company_id=*{company.id},id=*{id})}">参照</a></td>
+					<td><a class="btn btn-secondary btn-xs" th:href="@{/companies/{company_id}/staffs/{id}/edit(company_id=*{company.id},id=*{id})}">編集</a></td>
+					<td>
+						<form th:action="@{/companies/{company_id}/staffs/{id}(company_id=*{company.id},id=*{id})}" th:method="delete">
+							<input class="btn btn-secondary btn-xs" type="submit" value="削除" />
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a class="btn btn-secondary" th:href="@{/companies/{company_id}/staffs/new(company_id=${company.id})}">新規作成</a>
+	</div>
+</div>
+  

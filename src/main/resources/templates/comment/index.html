@@ -1,0 +1,29 @@
+<div layout:decorate="layout">
+	<div layout:fragment="contents">
+		<h1 th:text="${title}">Comment Index</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>名前</th>
+					<th>本文</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="comment:${comments}" th:object="${comment}">
+					<td th:text="*{id}"></td>
+					<td th:text="*{name}"></td>
+					<td th:text="*{body}"></td>
+					<td><a class="btn btn-secondary btn-xs" th:href="@{/ideas/{idea_id}/comments/{id}(idea_id=*{idea.id},id=*{id})}">参照</a></td>
+					<td><a class="btn btn-secondary btn-xs" th:href="@{/ideas/{idea_id}/comments/{id}/edit(idea_id=*{idea.id},id=*{id})}">編集</a></td>
+					<td>
+						<form th:action="@{/ideas/{idea_id}/comments/{id}(idea_id=*{idea.id},id=*{id})}" th:method="delete">
+							<input class="btn btn-secondary btn-xs" type="submit" value="削除" />
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a class="btn btn-secondary" th:href="@{/ideas/{idea_id}/comments/new(idea_id=${idea.id})}">新規作成</a>
+	</div>
+</div>

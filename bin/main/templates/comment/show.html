@@ -1,0 +1,25 @@
+<div layout:decorate="layout">
+	<div layout:fragment="contents">
+		<h1 th:text="${title}">Show Comment</h1>
+		<div th:object="${comment}">
+			<div>
+				<label>ID</label>
+				<p th:text="*{id}"></p>
+			</div>
+			<div>
+				<label>名前</label>
+				<p th:text="*{name}"></p>
+			</div>
+			<div>
+				<label>本文</label>
+				<p th:text="*{body}"></p>
+			</div>
+		</div>
+		<div>
+			<a class="btn btn-secondary" th:href="@{/ideas/{idea_id}/comments/{id}/edit(idea_id=*{idea.id},id=*{id})}">編集</a>
+		</div>
+		<div class="pull-right">
+			<a class="btn btn-link" href="/ideas">一覧画面へ</a>
+		</div>
+	</div>
+</div>
