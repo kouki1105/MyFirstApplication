@@ -8,6 +8,7 @@ import com.cloudinary.utils.ObjectUtils;
 import com.example.myfirstapplication.config.Singleton;
 import com.example.myfirstapplication.entity.Idea;
 import com.example.myfirstapplication.entity.Photo;
+import com.example.myfirstapplication.entity.PhotoUpload;
 import com.example.myfirstapplication.form.IdeaForm;
 import com.example.myfirstapplication.repository.IdeaRepository;
 
