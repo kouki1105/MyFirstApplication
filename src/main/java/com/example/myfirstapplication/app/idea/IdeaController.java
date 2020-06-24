@@ -11,6 +11,7 @@ import com.example.myfirstapplication.entity.Photo;
 import com.example.myfirstapplication.entity.PhotoUpload;
 import com.example.myfirstapplication.form.IdeaForm;
 import com.example.myfirstapplication.repository.IdeaRepository;
+import com.example.myfirstapplication.repository.PhotoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,7 +29,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IdeaController {
 	
 	@Autowired
-	private IdeaRepository ideaRepository;
+    private IdeaRepository ideaRepository;
+    
+    @Autowired
+    private PhotoRepository photoRepository;
 	
 	@GetMapping
 	public String index(Model model) {
@@ -43,12 +47,6 @@ public class IdeaController {
     public String newIdea(Model model) {
 		model.addAttribute("title", "New Idea");
         return "idea/new";
-    }
-	
-	@PostMapping
-    public String create(@ModelAttribute Idea idea) {
-		ideaRepository.save(idea);
-        return "redirect:/ideas";
     }
 
     @PostMapping

@@ -15,7 +15,7 @@
 					<td th:text="*{id}"></td>
 					<td th:text="*{name}"></td>
 					<td th:text="*{description}"></td>
-					<td th:text="*{picture}"></td>
+					<td><img th:src="*{getThumbnailUrl()}" /></td>
 					<td><a class="btn btn-secondary btn-xs" th:href="@{/ideas/{id}(id=*{id})}">参照</a></td>
 					<td><a class="btn btn-secondary btn-xs" th:href="@{/ideas/{id}/edit(id=*{id})}">編集</a></td>
 					<td>
