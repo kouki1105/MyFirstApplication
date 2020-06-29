@@ -14,7 +14,7 @@
 			<button class="btn btn-secondary" type="submit">作成</button>
 		</form>
 		<div class="pull-right">
-			<a class="btn btn-link" href="/ideas/{idea_id}/comments(idea_id=${idea.id})">一覧画面へ</a>
+			<a class="btn btn-link" th:href="@{/ideas/{idea_id}/comments(idea_id=${idea.id})}">一覧画面へ</a>
 		</div>
 	</div>
 </div>

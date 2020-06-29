@@ -1,31 +1,13 @@
 <div layout:decorate="layout">
 	<div layout:fragment="contents">
 		<h1 th:text="${title}">Idea Index</h1>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>名前</th>
-					<th>説明</th>
-					<th>写真</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="idea:${ideas}" th:object="${idea}">
-					<td th:text="*{id}"></td>
-					<td th:text="*{name}"></td>
-					<td th:text="*{description}"></td>
-					<td><img th:src="*{getThumbnailUrl()}" /></td>
-					<td><a class="btn btn-secondary btn-xs" th:href="@{/ideas/{id}(id=*{id})}">参照</a></td>
-					<td><a class="btn btn-secondary btn-xs" th:href="@{/ideas/{id}/edit(id=*{id})}">編集</a></td>
-					<td>
-						<form th:action="@{/ideas/{id}(id=*{id})}" th:method="delete">
-							<input class="btn btn-secondary btn-xs" type="submit" value="削除" />
-						</form>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="row">
+			<div th:each="idea:${ideas}" th:object="${idea}" class="col-md-4">
+				<img th:src="*{getThumbnailUrl()}" />
+				<h4><a th:text="*{name}" th:href="@{/ideas/{id}(id=*{id})}"></a></h4>
+				<p th:text="*{description}"></p>
+			</div>
+		</div>
 		<a class="btn btn-secondary" href="/ideas/new">新規作成</a>
 	</div>
 </div>

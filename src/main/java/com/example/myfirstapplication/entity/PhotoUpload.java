@@ -26,8 +26,8 @@ public class PhotoUpload extends StoredFile {
         if (version != null && format != null && publicId != null) {
             return Singleton.getCloudinary().url().format(format)
                     .resourceType(resourceType)
-                    .type(type)
-                    .version(version).transformation(new Transformation().width(150).height(150).crop("fit"))
+					.type(type)
+                    .version(version).transformation(new Transformation<>().width(150).height(150).crop("fit"))
                     .generate(publicId);
         } else return null;
     }

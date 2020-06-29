@@ -27,7 +27,7 @@ public class Idea {
 	}
 
 	@OneToOne(mappedBy = "idea", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-		private Photo photo;
+	private Photo photo;
 
 	public long getId() {
 		return id;
@@ -64,7 +64,7 @@ public class Idea {
 	public String getThumbnailUrl() {
 		return Singleton.getCloudinary().url()
 		.transformation(
-		new Transformation().width(150).height(150).crop("thumb")
+			new Transformation<>().width(150).height(150).crop("thumb")
 		).generate(photo.getUpload().getPublicId());
 	}
 

@@ -1,29 +1,20 @@
 <div layout:decorate="layout">
 	<div layout:fragment="contents">
 		<h1 th:text="${title}">Show Idea</h1>
-		<div th:object="${idea}">
-			<div>
-				<label>ID</label>
-				<p th:text="*{id}"></p>
-			</div>
-			<div>
-				<label>名前</label>
-				<p th:text="*{name}"></p>
-			</div>
-			<div>
-				<label>説明</label>
-				<p th:text="*{description}"></p>
-			</div>
-			<div>
-				<label>写真</label>
+		<div th:object="${idea}"　class="row">
+			<div class="col-md-9">
 				<img th:src="*{getThumbnailUrl()}" />
 			</div>
-		</div>
-		<div>
-			<a class="btn btn-secondary" th:href="@{/ideas/{id}/edit(id=*{id})}">編集</a>
-		</div>
-		<div class="pull-right">
-			<a class="btn btn-link" href="/ideas">一覧画面へ</a>
+		  
+			<div class="col-md-3">
+				<b>名前: </b><p th:text="*{name}"></p>
+				<b>説明: </b><p th:text="*{description}"></p>
+				<p><a class="btn btn-secondary" th:href="@{/ideas/{id}/edit(id=*{id})}">編集</a></p>
+				<form th:action="@{/ideas/{id}(id=*{id})}" th:method="delete">
+					<p><input class="btn btn-secondary btn-xs" type="submit" value="削除" /></p>
+				</form>
+				<p><a class="btn btn-link" href="/ideas">一覧画面へ</a></p>
+			</div>
 		</div>
 	</div>
 </div>

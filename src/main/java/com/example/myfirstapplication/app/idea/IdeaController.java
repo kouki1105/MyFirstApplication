@@ -55,14 +55,14 @@ public class IdeaController {
         idea.setName(ideaForm.getName());
         idea.setDescription(ideaForm.getDescription());
         PhotoUpload photoUpload = new PhotoUpload();
-        Map uploadResult = null;
+        Map<?, ?> uploadResult = null;
         if (ideaForm.getFile() != null && !ideaForm.getFile().isEmpty()) {
             uploadResult = Singleton.getCloudinary().uploader().upload(ideaForm.getFile().getBytes(),
                     ObjectUtils.asMap("resource_type", "auto"));
             photoUpload.setPublicId((String) uploadResult.get("public_id"));
             Object version = uploadResult.get("version");
             if (version instanceof Integer) {
-                photoUpload.setVersion(new Long((Integer) version));    
+                photoUpload.setVersion(Long.valueOf((Integer) version));
             } else {
                 photoUpload.setVersion((Long) version);
             }
