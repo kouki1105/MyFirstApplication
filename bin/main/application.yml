@@ -8,6 +8,6 @@ spring:
   h2.console.enabled: true
   mvc.hiddenmethod.filter.enabled: true
   cloudinary:
-  cloud_name: dgn4wqhf0
-  api_key: 581724769262485
-  api_secret: TL4HExoLeReaHnyJ-j7EfuggqVQ
+    cloud_name: dgn4wqhf0
+    api_key: 581724769262485
+    api_secret: TL4HExoLeReaHnyJ-j7EfuggqVQ
