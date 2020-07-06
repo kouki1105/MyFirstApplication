@@ -1,4 +1,4 @@
-package com.example.myfirstapplication.app.company;
+package com.example.myfirstapplication.controller;
 
 import java.util.List;
 

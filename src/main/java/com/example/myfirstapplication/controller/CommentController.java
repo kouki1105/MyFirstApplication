@@ -1,4 +1,4 @@
-package com.example.myfirstapplication.app.comment;
+package com.example.myfirstapplication.controller;
 
 import java.util.List;
 

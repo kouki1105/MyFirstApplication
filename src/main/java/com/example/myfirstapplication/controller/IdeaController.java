@@ -1,4 +1,4 @@
-package com.example.myfirstapplication.app.idea;
+package com.example.myfirstapplication.controller;
 
 import java.io.IOException;
 import java.util.List;
